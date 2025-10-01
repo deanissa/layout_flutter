@@ -2,4 +2,4 @@
 
 A new Flutter project.
 
-![Implementasi Text Section](images/03.png)
+![Implementasi Image Section](images/04.png)
