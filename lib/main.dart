@@ -7,17 +7,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Bagian title section (judul + lokasi + rating)
+    // Warna utama dari tema
+    Color color = Theme.of(context).primaryColor;
+
+    // Bagian title section
     Widget titleSection = Container(
       padding: const EdgeInsets.all(32),
       child: Row(
         children: [
           Expanded(
-            // soal 1 → kolom rata kiri
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // soal 2 → judul dengan padding bawah
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
@@ -36,7 +37,6 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          // soal 3 → ikon dan jumlah rating
           const Icon(
             Icons.star,
             color: Colors.red,
@@ -46,22 +46,51 @@ class MyApp extends StatelessWidget {
       ),
     );
 
+    // Bagian tombol (call, route, share)
+    Widget buttonSection = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildButtonColumn(color, Icons.call, 'CALL'),
+        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+        _buildButtonColumn(color, Icons.share, 'SHARE'),
+      ],
+    );
+
     return MaterialApp(
-      title: 'Flutter layout: NIM Anda',
+      title: 'Flutter layout: Nama dan NIM Anda',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Deanissa 2314760187'),
+          title: const Text('Flutter layout demo'),
         ),
         body: Column(
           children: [
             titleSection,
-            const SizedBox(height: 20),
-            const Center(
-              //child: Text('Hello World'),
-            ),
+            buttonSection,
           ],
         ),
       ),
+    );
+  }
+
+  // 👉 Langkah 1: Membuat helper method untuk tombol
+  Column _buildButtonColumn(Color color, IconData icon, String label) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: color),
+        Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
