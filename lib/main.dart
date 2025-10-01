@@ -56,16 +56,33 @@ class MyApp extends StatelessWidget {
       ],
     );
 
+    Widget textSection = Container(
+     padding: const EdgeInsets.all(32),
+     child: const Text(
+    'Gunung Panderman adalah salah satu gunung yang populer di Batu, '
+    'Malang. Gunung ini memiliki ketinggian sekitar 2.045 mdpl dan '
+    'menjadi destinasi favorit bagi pendaki pemula karena jalurnya '
+    'yang relatif mudah. Dari puncaknya, pengunjung dapat menikmati '
+    'pemandangan Kota Batu dan sekitarnya yang indah, terutama saat '
+    'matahari terbit. Suasana sejuk dan udara segar menjadikan tempat '
+    'ini cocok untuk wisata alam dan aktivitas outdoor.\n\n'
+    'Nama: Deanissa Sherly Sabilla\n'
+    'NIM : 2341760187',
+    softWrap: true,
+     ),
+    );
+
     return MaterialApp(
       title: 'Flutter layout: Nama dan NIM Anda',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter layout demo'),
+          title: const Text('Deanissa 2341760187'),
         ),
         body: Column(
           children: [
             titleSection,
             buttonSection,
+            textSection,
           ],
         ),
       ),
